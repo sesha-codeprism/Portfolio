@@ -1,14 +1,14 @@
 
 <!doctype html>
- <html lang="en">
+<html lang="en">
   <head>
-      {% load staticfiles %}
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Sesha's Portfolio-All about Sesha</title>
+    <title>Sesha's Blog--Sesha's Thoughts and Comments</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -58,35 +58,20 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Sesha Sai Singaraju</h1>
-      <p class="lead text-muted" align = "Justify">A cynical individual with a strong aesthetic sense, appreciate beauty and experience varied emotions and feelings. Very independent, unconventional and original. Loves challenges and loves to solve problems. Tends to think logically and look for reasoning behind every decision or solution of a problem. Values knowledge above everything else. </p>
-      <img src = "{% static 'Me.jpg' %}" height="300" /><br/>
-       <br/>
-        <p>
-        <a href="mailto:seshasaisingaraju@hotmail.com" class="btn btn-primary my-2">E-mail me!</a>
-      </p>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class = "card-img-top" src = "{{job.image.url}}" height="200" width="200"/>
-            <div class="card-body">
-              <p class="card-text">{{job.sumry}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-  </div>
-
+  <div class = "container">
+  <h1 class = "text-center pt-3">Welcome to my blog</h1>
+  <br/>
+  <h2>Latest posts</h2>
+  <hr/>
+  {% for blog in blogs.all %}
+  <a href="{% url 'detail' blog.id %}"><h3>{{blog.title}}</h3></a>
+  {{blog.publ_date}}
+  <br/>
+  <img class = "img-fluid" src = "{{blog.image.url}}" height="200" width="200"/>
+  <br/>
+  <p>{{blog.summary}}</p>
+   {% endfor %}
+</div>
 </main>
 
 <footer class="text-muted">
